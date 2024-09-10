@@ -1,0 +1,42 @@
+{
+  "name": "order-broker",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "start": "nodemon src --exec babel-node",
+    "build": "babel src -d dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@babel/runtime": "^7.25.6",
+    "amqplib": "^0.10.4",
+    "axios": "^1.7.7",
+    "http-status": "^1.7.4",
+    "joi": "^17.13.3",
+    "redis": "^4.7.0",
+    "winston": "^3.14.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.25.6",
+    "@babel/core": "^7.25.2",
+    "@babel/eslint-parser": "^7.25.1",
+    "@babel/node": "^7.25.0",
+    "@babel/plugin-transform-runtime": "^7.25.4",
+    "@babel/preset-env": "^7.25.4",
+    "@vitest/coverage-v8": "^2.0.5",
+    "babel-plugin-root-import": "^6.6.0",
+    "eslint": "^9.10.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "nodemon": "^3.1.4",
+    "path": "^0.12.7",
+    "prettier": "^3.3.3",
+    "vitest": "^2.0.5"
+  }
+}
