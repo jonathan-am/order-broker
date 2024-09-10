@@ -17,7 +17,7 @@ winston.addColors({
 });
 
 const logger = winston.createLogger({
-	level: 'http',
+	level: 'info',
 	levels,
 	format: winston.format.combine(
 		winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),

@@ -1,5 +1,5 @@
-const Joi = require("joi");
-const { default: InvalidOrderException } = require("~/exceptions/invalidOrder.exception");
+import Joi from "joi";
+import { InvalidOrderException } from "~/exceptions/invalidOrder.exception";
 
 const schemaMessageOrder = Joi.object().keys({
     payment: Joi.object({

@@ -1,8 +1,7 @@
 import { insertValue } from "~/clients/redis.client";
-
-const { postCreateOrder, putUpdateOrder } = require("~/clients/orderService.client");
-const { default: GenericException } = require("~/exceptions/generic.exception");
-const { validate } = require("~/validator/order.validator")
+import { postCreateOrder, putUpdateOrder } from "~/clients/orderService.client";
+import GenericException from "~/exceptions/generic.exception";
+import { validate } from "~/validator/order.validator";
 const orderStatus = {
     INITIAL: "initial",
     CREATED: "created",

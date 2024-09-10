@@ -1,5 +1,5 @@
-const { default: logger } = require("./config/logger");
-const { default: initConsumer } = require("./queues/orderQueue.consumer");
+import logger from "./config/logger";
+import initConsumer from "./queues/orderQueue.consumer";
 import { startRedis } from "./config/redis.config";
 
 const initApp = async () => {
