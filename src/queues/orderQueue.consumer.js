@@ -10,14 +10,15 @@ export default async function initConsumer(){
         await channel.assertQueue('order.queue', { deadLetterExchange: 'order.exchange.dlq', deadLetterRoutingKey: 'orderDlqRouteKey'})
         await channel.prefetch(100)
         await channel.consume('order.queue', async (value) => {
+            const data = JSON.parse(value.content.toString());
             try {
-                const order = JSON.parse(value.content.toString());
-                logger.info('orderQueue.consumer - Mensagem recebida:', order);
-                await processOrder(order);
+                logger.info('orderQueue.consumer - Mensagem recebida:', data.order);
+                await processOrder(data.order);
                 channel.ack(value, false);
             }catch(error) {
                 logger.error('orderQueue.consumer - Erro ao processar o pedido, order:', order)
-                channel.nack(value, false, false);
+                data.error.push(error.message);
+                channel.nack(JSON.stringify({ order: data.order, error: data.error }), false, false);
             }
         })
         logger.info('Consumer conectado na fila - order.queue')
