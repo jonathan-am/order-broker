@@ -11,7 +11,7 @@ export const postCreateOrder = async (data) => {
         }
     }
     return await axios(options)
-        .then((response))
+        .then((response)=>response)
         .catch(error=>{throw new ClientRequestException(500, error.message)});
 }
 
@@ -25,7 +25,7 @@ export const putUpdateOrder = async (data) => {
         }
     }
     return await axios(options)
-        .then((response))
+        .then((response)=>response)
         .catch(error=>{throw new ClientRequestException(500, error.message)});
 }
 

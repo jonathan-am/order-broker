@@ -1,0 +1,20 @@
+{
+	"payment": {
+		"type": "card",
+		"identifier": "3131333",
+		"status": "paid"
+	},
+	"item": {
+		"name": "teste rabbit",
+		"quantity": 10,
+		"unitPrice": "10.32"
+	},
+	"fraudCheck": false,
+	"status": "initial",
+	"value": 103.2,
+	"billing": {
+		"name": "aaaaa",
+		"lastname": "teste",
+		"address": "teste 321 teste"
+	}
+}

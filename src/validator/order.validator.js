@@ -1,5 +1,5 @@
 import Joi from "joi";
-import { InvalidOrderException } from "~/exceptions/invalidOrder.exception";
+import InvalidOrderException from "~/exceptions/invalidOrder.exception";
 
 const schemaMessageOrder = Joi.object().keys({
     payment: Joi.object({
@@ -22,10 +22,10 @@ const schemaMessageOrder = Joi.object().keys({
     }).required()
 })
 
-export const validate = (order) => {
+export const validate = async (order) => {
     const { error } = schemaMessageOrder.validate(order);
     if(error) {
-        throw new InvalidOrderException("Invalid Order Format", "INVALID_DATA");
+        throw new InvalidOrderException("INVALID_DATA", "Invalid Order Format");
     }
 }
 
