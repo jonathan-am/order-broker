@@ -13,7 +13,7 @@ export default async function initConsumer(){
             const data = JSON.parse(value.content.toString());
             try {
                 logger.info('orderQueue.consumer - Mensagem recebida:', data.order);
-                await processOrder(data.order).then(channel.ack(value, false));
+                processOrder(data.order).then(()=> channel.ack(value, false));
             }catch(error) {
                 logger.error('orderQueue.consumer - Erro ao processar o pedido, order:', order)
                 data.error.push(error.message);
